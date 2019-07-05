@@ -49,5 +49,28 @@ plt.ylabel('predicted prices ($1000s)')
 plt.tight_layout()
 plt.show()
 
+####################################################
+# Prediction with gradient boosted tree
+
+from sklearn.ensemble import GradientBoostingRegressor
+
+clf = GradientBoostingRegressor()
+clf.fit(X_train ,Y_train)
+
+predicted=clf.predict(X_test)
+expected = Y_test
+
+plt.figure(figsize=(4,3))
+plt.scatter(expected,predicted)
+plt.plot([10,50],[0,50],'--k')
+plt.axis('tight')
+plt.xlabel('True price ($1000s)')
+plt.ylabel('predicted price ($1000s)')
+plt.tight_layout()
+plt.show()
+
+
+                                
+
                                 
 
